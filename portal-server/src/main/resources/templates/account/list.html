@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts</title>
+    <style>
+        body {
+            margin: 0 15px;
+        }
+        td.decimal {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Accounts</h1>
+</header>
+<section id="main">
+    <table>
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-th-each="acc,accStats : ${accounts}" data-th-object="${acc}">
+                <td data-th-text="${accStats.index}">0</td>
+                <td data-th-text="*{code}">c1</td>
+                <td data-th-text="*{name}">John</td>
+                <td data-th-text="*{#numbers.formatDecimal(balance,1,2)}" class="decimal">0.00</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

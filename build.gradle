@@ -1,0 +1,30 @@
+plugins {
+    id 'org.springframework.boot' version '1.4.2.RELEASE'
+}
+
+subprojects {
+    group 'samsong8610'
+    version '1.0.SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter"
+        compile "org.springframework.boot:spring-boot-starter-test"
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+project(":portal-server") {
+    dependencies {
+        compile project(":account-client")
+    }
+}
