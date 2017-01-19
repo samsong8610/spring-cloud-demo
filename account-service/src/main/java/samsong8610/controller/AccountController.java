@@ -3,6 +3,8 @@ package samsong8610.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.sleuth.Span;
+import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,8 @@ public class AccountController {
     public static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     private AccountRepository repository;
+    @Autowired
+    private Tracer tracer;
 
     @Autowired
     public AccountController(AccountRepository repository) {
@@ -32,7 +36,12 @@ public class AccountController {
     @GetMapping()
     public List<Account> list() {
         logger.info("account-service list() invoked");
-        return repository.findAll();
+        Span span = tracer.createSpan("account-repo-findall");
+        try {
+            return repository.findAll();
+        } finally {
+            tracer.close(span);
+        }
     }
 
     @GetMapping(path = "/{code}")

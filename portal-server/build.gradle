@@ -1,7 +1,10 @@
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:" + springBootVersion
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf:" + springBootVersion
-    compile "org.springframework.cloud:spring-cloud-starter:1.1.6.RELEASE"
-    compile "org.springframework.cloud:spring-cloud-starter-eureka-server:1.2.3.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "org.springframework.cloud:spring-cloud-starter"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka-server"
+    compile "org.springframework.cloud:spring-cloud-starter-sleuth"
+    compile "org.springframework.cloud:spring-cloud-starter-zipkin"
+    compile "org.springframework.cloud:spring-cloud-sleuth-zipkin"
     compile "net.sourceforge.nekohtml:nekohtml:1.9.15"
 }

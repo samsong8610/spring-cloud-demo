@@ -7,3 +7,11 @@ eureka:
 
 server:
   port: 1111
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: DEBUG
