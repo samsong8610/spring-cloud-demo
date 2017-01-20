@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+#      uri: http://localhost:5555
+      failFast: true
+      discovery:
+        enabled: true # Auto discovery the config server
+        serviceId: config-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/

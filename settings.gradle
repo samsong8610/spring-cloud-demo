@@ -21,4 +21,5 @@ include 'registry-server'
 include 'account-service'
 include 'portal-server'
 include 'account-client'
+include 'config-server'
 
